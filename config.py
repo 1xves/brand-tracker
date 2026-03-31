@@ -1,5 +1,9 @@
 """Configuration and settings for brand tracker."""
 
+from __future__ import annotations
+
+from __future__ import annotations
+
 from pathlib import Path
 from pydantic import BaseModel
 from pydantic_settings import BaseSettings
@@ -24,6 +28,8 @@ class Settings(BaseSettings):
     # Scraping settings
     check_interval_minutes: int = 30
     data_dir: Path = Path("data")
+    database_url: str = "sqlite:///./data/brand-tracker.db"
+
     max_posts_per_check: int = 20
 
     model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}

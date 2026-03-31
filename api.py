@@ -29,8 +29,8 @@ settings = Settings()
 DATA_DIR: Path = settings.data_dir
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-brand_store = BrandStore(DATA_DIR / "brands.json")
-alert_history = AlertHistory(DATA_DIR / "alerts.json")
+brand_store = BrandStore(settings.database_url)
+alert_history = AlertHistory(settings.database_url)
 tracker = BrandTracker(settings)
 
 # ── FastAPI app ──────────────────────────────────────────────────────────
